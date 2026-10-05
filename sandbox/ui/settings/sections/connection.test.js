@@ -49,7 +49,7 @@ describe('ConnectionSection MCP tool cache', () => {
         ]);
 
         expect(summary.textContent).toBe(
-            'No tool list loaded. Click "Refresh Tools" to load tools, then select which to expose.'
+            '尚未加载工具列表。点击“刷新工具列表”后选择要暴露的工具。'
         );
         expect(list.textContent).not.toContain('old.tool');
     });
@@ -186,7 +186,7 @@ describe('ConnectionSection provider visibility', () => {
                 selectedModel: '',
             })
         );
-        expect(section.elements.dedicatedApiModelListStatus.textContent).toBe('Loaded 2 models.');
+        expect(section.elements.dedicatedApiModelListStatus.textContent).toBe('已加载 2 个模型。');
     });
 
     it('restores and reads the Gemini Web temporary chat checkbox', () => {
@@ -195,9 +195,14 @@ describe('ConnectionSection provider visibility', () => {
         providerSelect.innerHTML = '<option value="web">Web</option>';
         const webTemporaryChat = document.createElement('input');
         webTemporaryChat.type = 'checkbox';
+        const apiBridgeEnabled = document.createElement('input');
+        apiBridgeEnabled.type = 'checkbox';
+        const apiBridgeUrl = document.createElement('input');
         section.elements = {
             providerSelect,
             webTemporaryChat,
+            apiBridgeEnabled,
+            apiBridgeUrl,
         };
         section.mcpServers = [];
         section.mcpActiveServerId = null;
@@ -207,12 +212,21 @@ describe('ConnectionSection provider visibility', () => {
         section.setMcpTestStatus = () => {};
         section._saveCurrentServerEdits = () => {};
 
-        section.setData({ provider: 'web', webTemporaryChat: true });
+        section.setData({
+            provider: 'web',
+            webTemporaryChat: true,
+            apiBridgeEnabled: true,
+            apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
+        });
 
         expect(webTemporaryChat.checked).toBe(true);
+        expect(apiBridgeEnabled.checked).toBe(true);
+        expect(apiBridgeUrl.value).toBe('ws://127.0.0.1:8787/bridge');
         expect(section.getData()).toMatchObject({
             provider: 'web',
             webTemporaryChat: true,
+            apiBridgeEnabled: true,
+            apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
         });
     });
 

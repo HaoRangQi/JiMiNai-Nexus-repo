@@ -88,6 +88,15 @@ describe('settings templates', () => {
         expect(document.getElementById('mcp-tools-summary')).toBeTruthy();
     });
 
+    it('renders local API bridge controls for the extension-side proxy bridge', () => {
+        document.body.innerHTML = ConnectionSettingsTemplate;
+
+        expect(document.getElementById('api-bridge-enabled')).toBeTruthy();
+        expect(document.getElementById('api-bridge-url').placeholder).toBe(
+            'ws://127.0.0.1:8787/bridge'
+        );
+    });
+
     it('keeps settings templates free of static inline styles', () => {
         document.body.innerHTML =
             GeneralSettingsTemplate +

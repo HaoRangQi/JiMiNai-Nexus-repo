@@ -1,0 +1,12 @@
+{
+    "id": "assess-gemini-api-compat",
+    "title": "评估 Gemini-Nexus 是否可将 Gemini Web 反代为可供 Cherry Studio 使用的 API",
+    "status": "completed",
+    "complexity": "S",
+    "risk": "low",
+    "domain": "backend",
+    "currentPhase": "completed",
+    "nextAction": "归档任务记录",
+    "createdAt": "2026-06-05T17:40:00+08:00",
+    "branch": "main"
+}

@@ -148,6 +148,8 @@
         DEFAULT_MCP_HTTP_URL: 'http://127.0.0.1:3006/mcp',
         DEFAULT_MCP_SSE_URL: 'http://127.0.0.1:3006/sse',
         DEFAULT_MCP_WS_URL: 'ws://127.0.0.1:3006/mcp',
+        DEFAULT_API_BRIDGE_ENABLED: false,
+        DEFAULT_API_BRIDGE_URL: 'ws://127.0.0.1:8787/bridge',
         DEDICATED_API_PROVIDERS,
         DEDICATED_API_PROVIDER_IDS: Object.freeze(Object.keys(DEDICATED_API_PROVIDERS)),
     });

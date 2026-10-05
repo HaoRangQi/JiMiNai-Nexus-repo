@@ -33,6 +33,8 @@ import { formatLogDownloadText } from './log_download.js';
 import {
     DEFAULT_CONTEXT_MODE,
     DEFAULT_CONTEXT_RECENT_TURNS,
+    DEFAULT_API_BRIDGE_ENABLED,
+    DEFAULT_API_BRIDGE_URL,
     DEFAULT_MCP_HTTP_URL,
     DEFAULT_MCP_TRANSPORT,
     DEFAULT_OFFICIAL_BASE_URL,
@@ -97,6 +99,8 @@ export class SettingsController {
             mcpServerUrl: DEFAULT_MCP_HTTP_URL,
             mcpServers: [createDefaultMcpServer()],
             mcpActiveServerId: null,
+            apiBridgeEnabled: DEFAULT_API_BRIDGE_ENABLED,
+            apiBridgeUrl: DEFAULT_API_BRIDGE_URL,
         };
 
         this.view = new SettingsView({

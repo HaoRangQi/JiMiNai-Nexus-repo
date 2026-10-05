@@ -7,7 +7,7 @@ function resolveLanguage(pref) {
     return pref;
 }
 
-let savedPreference = 'system';
+let savedPreference = 'zh';
 let currentLang = resolveLanguage(savedPreference);
 
 // Apply initial lang attribute for CSS/DOM consistency

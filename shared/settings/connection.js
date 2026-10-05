@@ -3,6 +3,7 @@ import {
     DEFAULT_MCP_SSE_URL,
     DEFAULT_MCP_TRANSPORT,
     DEFAULT_MCP_WS_URL,
+    DEFAULT_API_BRIDGE_URL,
     DEFAULT_OFFICIAL_BASE_URL,
     DEFAULT_OFFICIAL_MODELS,
     DEFAULT_OPENAI_MODEL,
@@ -45,6 +46,8 @@ export const CONNECTION_STORAGE_KEYS = [
     'geminiMcpServerUrl',
     'geminiMcpServers',
     'geminiMcpActiveServerId',
+    'geminiApiBridgeEnabled',
+    'geminiApiBridgeUrl',
     ...DEDICATED_API_STORAGE_KEYS,
 ];
 
@@ -124,6 +127,8 @@ export function createConnectionSettingsPayload(storageData = {}, options = {}) 
             ? storageData.geminiMcpServers
             : null,
         mcpActiveServerId: storageData.geminiMcpActiveServerId || null,
+        apiBridgeEnabled: storageData.geminiApiBridgeEnabled === true,
+        apiBridgeUrl: storageData.geminiApiBridgeUrl || DEFAULT_API_BRIDGE_URL,
     };
 }
 
@@ -150,6 +155,8 @@ export function createConnectionStorageUpdate(payload = {}) {
         geminiMcpServerUrl: payload.mcpServerUrl || '',
         geminiMcpServers: Array.isArray(payload.mcpServers) ? payload.mcpServers : [],
         geminiMcpActiveServerId: payload.mcpActiveServerId || null,
+        geminiApiBridgeEnabled: payload.apiBridgeEnabled === true,
+        geminiApiBridgeUrl: payload.apiBridgeUrl || DEFAULT_API_BRIDGE_URL,
     };
 }
 

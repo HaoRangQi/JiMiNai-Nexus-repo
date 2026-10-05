@@ -82,7 +82,7 @@ describe('SettingsController', () => {
                 true
             );
             expect(document.getElementById('settings-save-status').hidden).toBe(false);
-            expect(document.getElementById('settings-save-status').textContent).toBe('Saved');
+            expect(document.getElementById('settings-save-status').textContent).toBe('已保存');
             expect(document.getElementById('save-shortcuts').disabled).toBe(true);
 
             vi.advanceTimersByTime(1800);

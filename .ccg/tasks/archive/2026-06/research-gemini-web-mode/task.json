@@ -1,12 +1,12 @@
 {
-  "id": "research-gemini-web-mode",
-  "title": "Research Gemini web mode invocation flow",
-  "status": "completed",
-  "complexity": "M",
-  "risk": "low",
-  "domain": "extension",
-  "currentPhase": "completed",
-  "nextAction": "Archived after research summary",
-  "createdAt": "2026-06-05T09:01:55Z",
-  "branch": "main"
+    "id": "research-gemini-web-mode",
+    "title": "Research Gemini web mode invocation flow",
+    "status": "completed",
+    "complexity": "M",
+    "risk": "low",
+    "domain": "extension",
+    "currentPhase": "completed",
+    "nextAction": "Archived after research summary",
+    "createdAt": "2026-06-05T09:01:55Z",
+    "branch": "main"
 }

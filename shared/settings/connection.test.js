@@ -96,6 +96,8 @@ describe('connection settings helpers', () => {
             mcpServerUrl: 'http://127.0.0.1:3006/mcp',
             mcpServers: null,
             mcpActiveServerId: null,
+            apiBridgeEnabled: false,
+            apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
         });
     });
 
@@ -137,6 +139,8 @@ describe('connection settings helpers', () => {
         expect(CONNECTION_STORAGE_KEYS).toContain('geminiDashscopeSelectedModel');
         expect(CONNECTION_STORAGE_KEYS).toContain('geminiAnthropicSelectedModel');
         expect(CONNECTION_STORAGE_KEYS).toContain('geminiMcpServers');
+        expect(CONNECTION_STORAGE_KEYS).toContain('geminiApiBridgeEnabled');
+        expect(CONNECTION_STORAGE_KEYS).toContain('geminiApiBridgeUrl');
     });
 
     it('creates a shared storage update for connection saves', () => {
@@ -162,6 +166,8 @@ describe('connection settings helpers', () => {
                 mcpEnabled: true,
                 mcpServers: [{ id: 'srv', url: 'http://localhost/mcp' }],
                 mcpActiveServerId: 'srv',
+                apiBridgeEnabled: true,
+                apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
             })
         ).toEqual(
             expect.objectContaining({
@@ -182,6 +188,8 @@ describe('connection settings helpers', () => {
                 geminiMcpServerUrl: '',
                 geminiMcpServers: [{ id: 'srv', url: 'http://localhost/mcp' }],
                 geminiMcpActiveServerId: 'srv',
+                geminiApiBridgeEnabled: true,
+                geminiApiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
             })
         );
     });

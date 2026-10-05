@@ -4,6 +4,7 @@ import { BrowserControlManager } from './managers/control_manager.js';
 import { McpRemoteManager } from './managers/mcp_remote_manager.js';
 import { LogManager, setupConsoleInterception } from './managers/log_manager.js';
 import { SidePanelScopeManager } from './managers/sidepanel_scope_manager.js';
+import { ApiBridgeManager } from './managers/api_bridge_manager.js';
 import { setupContextMenus } from './menus.js';
 import { setupMessageListener } from './messages.js';
 import { keepAliveManager } from './managers/keep_alive.js';
@@ -24,6 +25,7 @@ const sessionManager = new GeminiSessionManager();
 const imageManager = new ImageManager();
 const controlManager = new BrowserControlManager();
 const sidePanelScopeManager = new SidePanelScopeManager();
+const apiBridgeManager = new ApiBridgeManager({ sessionManager });
 const mcpManager = new McpRemoteManager({
     clientName: 'gemini-nexus',
     clientVersion: chrome.runtime.getManifest().version,
@@ -31,6 +33,9 @@ const mcpManager = new McpRemoteManager({
 
 chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false });
 sidePanelScopeManager.init();
+apiBridgeManager.init().catch((error) => {
+    console.warn('[Gemini Nexus] API bridge initialization failed:', error);
+});
 chrome.action.onClicked.addListener((tab) => {
     if (!tab?.id || !tab.windowId) return;
     sidePanelScopeManager.toggleForTab(tab.id, tab.windowId).catch((error) => {

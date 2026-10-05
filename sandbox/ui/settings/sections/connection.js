@@ -1,5 +1,6 @@
 import {
     DEFAULT_MCP_TRANSPORT,
+    DEFAULT_API_BRIDGE_URL,
     DEFAULT_OFFICIAL_BASE_URL,
     DEFAULT_OFFICIAL_MODELS,
     DEFAULT_PROVIDER,
@@ -81,6 +82,8 @@ export class ConnectionSection {
             openaiUseResponsesApi,
             openaiWebSearch,
             mcpEnabled,
+            apiBridgeEnabled,
+            apiBridgeUrl,
         } = this.elements;
 
         if (providerSelect) {
@@ -107,6 +110,9 @@ export class ConnectionSection {
         const openaiSettings = normalizeOpenAIWebSearchSettings(data || {});
         if (openaiUseResponsesApi) openaiUseResponsesApi.checked = openaiSettings.useResponsesApi;
         if (openaiWebSearch) openaiWebSearch.checked = openaiSettings.webSearch;
+
+        if (apiBridgeEnabled) apiBridgeEnabled.checked = data?.apiBridgeEnabled === true;
+        if (apiBridgeUrl) apiBridgeUrl.value = data?.apiBridgeUrl || DEFAULT_API_BRIDGE_URL;
 
         this.dedicatedApiProviders = normalizeDedicatedApiSettingsPayload(
             data?.dedicatedApiProviders
@@ -172,6 +178,8 @@ export class ConnectionSection {
             openaiUseResponsesApi,
             openaiWebSearch,
             mcpEnabled,
+            apiBridgeEnabled,
+            apiBridgeUrl,
         } = this.elements;
 
         const provider = providerSelect ? providerSelect.value : DEFAULT_PROVIDER;
@@ -215,6 +223,10 @@ export class ConnectionSection {
                 ? firstEnabled.transport || DEFAULT_MCP_TRANSPORT
                 : DEFAULT_MCP_TRANSPORT,
             mcpServerUrl: firstEnabled ? firstEnabled.url || '' : '',
+            apiBridgeEnabled: apiBridgeEnabled ? apiBridgeEnabled.checked === true : false,
+            apiBridgeUrl: apiBridgeUrl
+                ? apiBridgeUrl.value.trim() || DEFAULT_API_BRIDGE_URL
+                : DEFAULT_API_BRIDGE_URL,
         };
     }
 

@@ -69,6 +69,9 @@ export const DOM_IDS = {
     MCP_TOOLS_SUMMARY: 'mcp-tools-summary',
     MCP_TOOL_LIST: 'mcp-tool-list',
 
+    API_BRIDGE_ENABLED: 'api-bridge-enabled',
+    API_BRIDGE_URL: 'api-bridge-url',
+
     THEME_SELECT: 'theme-select',
     LANGUAGE_SELECT: 'language-select',
     SHORTCUT_QUICK_ASK: 'shortcut-quick-ask',

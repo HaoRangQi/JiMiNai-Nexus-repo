@@ -3,7 +3,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { applyTranslations, formatT, setLanguagePreference, t } from './i18n.js';
+import {
+    applyTranslations,
+    formatT,
+    getLanguagePreference,
+    setLanguagePreference,
+    t,
+} from './i18n.js';
 
 function getLocaleBlock(locale) {
     const source = fs.readFileSync(
@@ -19,6 +25,11 @@ function getDeclaredKeys(locale) {
 }
 
 describe('i18n translations', () => {
+    it('defaults the sandbox UI to Chinese before any stored preference is restored', () => {
+        expect(getLanguagePreference()).toBe('zh');
+        expect(t('settings')).toBe('设置');
+    });
+
     it('keeps locale keys unique and separated by meaning', () => {
         for (const locale of ['en', 'zh']) {
             const keys = getDeclaredKeys(locale);

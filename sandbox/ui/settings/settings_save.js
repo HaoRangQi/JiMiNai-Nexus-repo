@@ -1,6 +1,7 @@
 import {
     DEFAULT_CONTEXT_MODE,
     DEFAULT_CONTEXT_RECENT_TURNS,
+    DEFAULT_API_BRIDGE_URL,
     DEFAULT_MCP_TRANSPORT,
     DEFAULT_SIDE_PANEL_SCOPE,
     DEFAULT_THINKING_LEVEL,
@@ -73,5 +74,7 @@ export function buildConnectionSettingsForSave(connection, previousConnectionDat
         mcpServerUrl: connection.mcpServerUrl || '',
         mcpServers: Array.isArray(connection.mcpServers) ? connection.mcpServers : [],
         mcpActiveServerId: connection.mcpActiveServerId || null,
+        apiBridgeEnabled: connection.apiBridgeEnabled === true,
+        apiBridgeUrl: connection.apiBridgeUrl || DEFAULT_API_BRIDGE_URL,
     };
 }

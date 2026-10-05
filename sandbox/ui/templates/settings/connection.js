@@ -137,6 +137,20 @@ export const ConnectionSettingsTemplate = `
         <div class="setting-panel">
             <div class="setting-panel-row">
                 <div class="setting-panel-header">
+                    <h5 data-i18n="apiBridge">Local API Bridge</h5>
+                </div>
+                <input type="checkbox" id="api-bridge-enabled" class="setting-toggle" />
+            </div>
+
+            <div class="setting-field settings-section-offset">
+                <span data-i18n="apiBridgeUrl">Bridge URL</span>
+                <input type="text" id="api-bridge-url" class="settings-input settings-full-input" placeholder="ws://127.0.0.1:8787/bridge">
+            </div>
+        </div>
+
+        <div class="setting-panel">
+            <div class="setting-panel-row">
+                <div class="setting-panel-header">
                     <h5><span data-i18n="mcpTools">MCP External Tools</span>${createSettingsHelpButton('mcpToolsDesc')}</h5>
                 </div>
                 <input type="checkbox" id="mcp-enabled" class="setting-toggle" />

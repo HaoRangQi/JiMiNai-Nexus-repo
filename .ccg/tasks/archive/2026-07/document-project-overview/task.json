@@ -1,0 +1,12 @@
+{
+    "id": "document-project-overview",
+    "title": "梳理并输出面向第三方与 AI 的项目说明文档",
+    "status": "completed",
+    "complexity": "S",
+    "risk": "low",
+    "domain": "docs",
+    "currentPhase": "completed",
+    "nextAction": "归档任务记录",
+    "createdAt": "2026-07-02T00:00:00+08:00",
+    "branch": "codex/gemini-web-openai-proxy"
+}

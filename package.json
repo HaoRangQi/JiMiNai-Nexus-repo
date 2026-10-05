@@ -15,6 +15,7 @@
         "check": "npm run format:check && npm run build && npm exec tsc -- --noEmit && npm run lint:unused && npm run test",
         "package:extension": "npm run build && node scripts/package-extension.mjs",
         "publish:chrome-webstore": "node scripts/chrome-webstore-publish.mjs",
+        "proxy:start": "node proxy/server.js",
         "preview": "vite preview"
     },
     "devDependencies": {
@@ -31,6 +32,7 @@
         "highlight.js": "^11.11.1",
         "katex": "^0.16.45",
         "marked": "^18.0.3",
-        "mermaid": "^10.9.6"
+        "mermaid": "^10.9.6",
+        "ws": "^8.18.3"
     }
 }

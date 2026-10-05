@@ -38,6 +38,8 @@ describe('settings save helpers', () => {
                     openaiUseResponsesApi: true,
                     openaiWebSearch: true,
                     mcpServers: [{ id: 'srv-1', url: 'http://localhost/mcp' }],
+                    apiBridgeEnabled: true,
+                    apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
                 },
                 { openaiSelectedModel: 'gpt-5-mini', webThinkingLevel: 'minimal' }
             )
@@ -50,6 +52,8 @@ describe('settings save helpers', () => {
             openaiUseResponsesApi: true,
             openaiWebSearch: true,
             mcpServers: [{ id: 'srv-1', url: 'http://localhost/mcp' }],
+            apiBridgeEnabled: true,
+            apiBridgeUrl: 'ws://127.0.0.1:8787/bridge',
         });
     });
 

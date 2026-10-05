@@ -54,5 +54,8 @@ export function queryConnectionElements(getElement = getSettingsElement) {
         mcpToolSearch: getElement(DOM_IDS.MCP_TOOL_SEARCH),
         mcpToolsSummary: getElement(DOM_IDS.MCP_TOOLS_SUMMARY),
         mcpToolList: getElement(DOM_IDS.MCP_TOOL_LIST),
+
+        apiBridgeEnabled: getElement(DOM_IDS.API_BRIDGE_ENABLED),
+        apiBridgeUrl: getElement(DOM_IDS.API_BRIDGE_URL),
     };
 }
